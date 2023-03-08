@@ -23,6 +23,7 @@ export default function Spotlight({ pieces }) {
         image={randomItem.imageSource}
         title={randomItem.name}
         artist={randomItem.artist}
+        slug={randomItem.slug}
       />
     </>
   );
