@@ -1,17 +1,16 @@
 import React from "react";
 import ArtPiecePreview from "../ArtPiecePreview";
 import useSWR from "swr";
+import styled from "styled-components";
 
-export default function ArtPieces() {
-  const { data: pieces } = useSWR("https://example-apis.vercel.app/api/art");
-
+export default function ArtPieces({ pieces }) {
   if (!pieces) {
     return <p>Loading...</p>;
   }
   return (
     <>
       <h1>Pieces of Art</h1>
-      <ul>
+      <StyledPiecesList>
         {pieces.map((piece) => (
           <li key={piece.slug}>
             <ArtPiecePreview
@@ -21,7 +20,11 @@ export default function ArtPieces() {
             />
           </li>
         ))}
-      </ul>
+      </StyledPiecesList>
     </>
   );
 }
+
+const StyledPiecesList = styled.ul`
+  margin-bottom: 100px;
+`;
