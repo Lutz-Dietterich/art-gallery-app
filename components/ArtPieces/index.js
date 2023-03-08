@@ -1,7 +1,10 @@
 import React from "react";
 import ArtPiecePreview from "../ArtPiecePreview";
+import useSWR from "swr";
 
-export default function ArtPieces({ pieces }) {
+export default function ArtPieces() {
+  const { data: pieces } = useSWR("https://example-apis.vercel.app/api/art");
+
   if (!pieces) {
     return <p>Loading...</p>;
   }
