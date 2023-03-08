@@ -1,17 +1,11 @@
-import useSWR from "swr";
-import ArtPieces from "../components/ArtPieces";
 import Spotlight from "../components/Spotlight";
+import useSWR from "swr";
 
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-const URL = "https://example-apis.vercel.app/api/art";
-
-export default function HomePage() {
-  const { data: pieces } = useSWR(URL, fetcher);
-
+export default function SpotlightPage() {
+  const { data: pieces } = useSWR("https://example-apis.vercel.app/api/art");
   return (
     <div>
       <Spotlight pieces={pieces} />
-      <ArtPieces pieces={pieces} />
     </div>
   );
 }

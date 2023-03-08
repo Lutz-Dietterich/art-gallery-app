@@ -1,6 +1,9 @@
 import ArtPiecePreview from "../ArtPiecePreview";
+// import useSWR from "swr";
 
 export default function Spotlight({ pieces }) {
+  // const { data: pieces } = useSWR("https://example-apis.vercel.app/api/art");
+
   if (!pieces) {
     return <p>Loading...</p>;
   }
