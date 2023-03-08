@@ -21,4 +21,5 @@ test("renders ArtPieceDetails", () => {
   expect(
     screen.getByAltText("Orange Red and Green Abstract Painting")
   ).toBeInTheDocument();
+  expect(screen.getByText("Back to Art Pieces")).toBeInTheDocument();
 });
