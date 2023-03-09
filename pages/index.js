@@ -1,8 +1,9 @@
 import Spotlight from "../components/Spotlight";
-import useSWR from "swr";
+import { DataContext } from "../pages/_app";
+import { useContext } from "react";
 
 export default function SpotlightPage() {
-  const { data: pieces } = useSWR("https://example-apis.vercel.app/api/art");
+  const { pieces } = useContext(DataContext);
   return (
     <div>
       <Spotlight pieces={pieces} />

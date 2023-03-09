@@ -1,6 +1,5 @@
 import React from "react";
 import ArtPiecePreview from "../ArtPiecePreview";
-import useSWR from "swr";
 import styled from "styled-components";
 
 export default function ArtPieces({ pieces }) {

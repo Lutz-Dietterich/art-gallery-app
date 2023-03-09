@@ -2,13 +2,14 @@ import React from "react";
 import { useRouter } from "next/router";
 import ArtPiecesDetails from "../../components/ArtPiecesDetails";
 
-import useSWR from "swr";
+import { DataContext } from "../../pages/_app";
+import { useContext } from "react";
 
 export default function ArtPiecesDetailsPage() {
   const router = useRouter();
   const { slug } = router.query;
   console.log(slug);
-  const { data: pieces } = useSWR("https://example-apis.vercel.app/api/art");
+  const { pieces } = useContext(DataContext);
   if (!pieces) {
     return <p>Loading...</p>;
   }

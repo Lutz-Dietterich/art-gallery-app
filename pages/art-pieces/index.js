@@ -1,7 +1,8 @@
 import ArtPieces from "../../components/ArtPieces";
-import useSWR from "swr";
+import { DataContext } from "../../pages/_app";
+import { useContext } from "react";
 
 export default function ArtPiecesPage() {
-  const { data: pieces } = useSWR("https://example-apis.vercel.app/api/art");
+  const { pieces } = useContext(DataContext);
   return <ArtPieces pieces={pieces} />;
 }
