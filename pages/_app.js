@@ -12,10 +12,26 @@ export default function App({ Component, pageProps }) {
     "https://example-apis.vercel.app/api/art",
     fetcher
   );
+
+  const [artPiecesInfo, setArtPiecesInfo] = useState([]);
+
+  function handleToggleFavorite(slug) {
+    setArtPiecesInfo((artPiecesInfo) =>  {
+      const info = artPiecesInfo.find((info) => info.slug === slug);
+      if (info) {
+        return artPiecesInfo.map((info) => 
+          info.slug === slug ? { ...info, isFavorite: !info.isFavorite } : info
+        );
+      } 
+      return [...artPiecesInfo, { slug, isFavorite: true }];
+    });
+  }
+
+
   return (
     <>
       <GlobalStyle />
-      <DataContext.Provider value={{ pieces }}>
+      <DataContext.Provider value={{ pieces, artPiecesInfo, setArtPiecesInfo, handleToggleFavorite(slug)}}>
         <Component {...pageProps} />
         <Navigation />
       </DataContext.Provider>
