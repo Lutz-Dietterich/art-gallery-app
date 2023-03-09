@@ -3,6 +3,6 @@ import { DataContext } from "../../pages/_app";
 import { useContext } from "react";
 
 export default function ArtPiecesPage() {
-  const { pieces } = useContext(DataContext);
+  const { pieces, onToggleFavorite } = useContext(DataContext);
   return <ArtPieces pieces={pieces} />;
 }

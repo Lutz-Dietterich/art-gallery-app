@@ -9,7 +9,7 @@ export default function ArtPiecesDetailsPage() {
   const router = useRouter();
   const { slug } = router.query;
   console.log(slug);
-  const { pieces } = useContext(DataContext);
+  const { pieces, onToggleFavorite } = useContext(DataContext);
   if (!pieces) {
     return <p>Loading...</p>;
   }
@@ -21,6 +21,7 @@ export default function ArtPiecesDetailsPage() {
       artist={piece.artist}
       year={piece.year}
       genre={piece.genre}
+      onToggleFavorite={onToggleFavorite}
     />
   );
 }
